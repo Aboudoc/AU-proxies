@@ -138,7 +138,7 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-This project demonstrates a basic proxy use case. It comes with 3 different proxy contracts, a test for the generic proxy contract, and a library from openZeppelin called StorageSlot using assembly code.
+This project demonstrates a basic proxy use case. It comes with 3 different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
 
 For test purposes, get contract (ABI) Logic1 and Logic2 with proxy address
 
