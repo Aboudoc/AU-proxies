@@ -185,6 +185,7 @@ _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.open
 ## Roadmap
 
 -   [ ] Test Generic Proxy
+-   [ ] Write scripts to deploy and interact with proxy
 -   [ ] Explore proxie's vulnerabilities
 -   [ ] Proxy patterns
     -   [ ] Transparent proxy pattern
