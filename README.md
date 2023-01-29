@@ -107,13 +107,21 @@ To get a local copy up and running follow these simple example steps.
 -   hardhat
 
     ```sh
-    npm i hardhat
+    npm install --save-dev hardhat
+    ```
+
+    ```sh
+    npm install @nomiclabs/hardhat-ethers @nomiclabs/hardhat-waffle
     ```
 
     run:
 
     ```sh
     npx hardhat
+    ```
+
+    ```
+
     ```
 
 ### Installation
@@ -132,6 +140,8 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+
+If you need testnet funds, use the [Alchemy testnet faucet](https://goerlifaucet.com/).
 
 This project demonstrates a basic proxy use case. It comes with 3 different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
 
@@ -153,7 +163,7 @@ By using eth_getStorageAt we are bypassing the public getter, we can remove publ
 
 # Proxy V2 contract
 
-The storage values are inside of the proxy. This is where the delegatecall comes in. No data migration needed in case of ugrading to logic2
+The storage values are inside of the proxy. This is where the delegatecall comes in. No data migration needed in case of ugrading to logic2. For more details, check for [Transparent Proxy Patter](https://blog.openzeppelin.com/the-transparent-proxy-pattern/)
 
 # Generic Proxy contract
 
