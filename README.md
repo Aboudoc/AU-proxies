@@ -120,10 +120,6 @@ To get a local copy up and running follow these simple example steps.
     npx hardhat
     ```
 
-    ```
-
-    ```
-
 ### Installation
 
 1. Clone the repo
@@ -239,6 +235,7 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 ## Acknowledgments
 
 -   [AlchemyUniversity](https://university.alchemy.com/)
+-   [Dan-Nolan](https://github.com/Dan-Nolan)
 -   [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
 -   [SolidityByExample](https://solidity-by-example.org/)
 
