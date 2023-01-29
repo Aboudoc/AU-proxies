@@ -154,7 +154,7 @@ assert.equal(await logic1.x(), 0)
 assert.equal(await ethers.provider.getStorageAt(logic1.address, 0x0), 0)
 ```
 
-By using eth_storageAt we are bypassing the public getter, we can remove public viewer on x variable
+By using eth_getStorageAt we are bypassing the public getter, we can remove public viewer on x variable
 
 # Proxy V2 contract
 
