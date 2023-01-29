@@ -79,7 +79,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://res.cloudinary.com/divzjiip8/image/upload/c_scale,w_239/v1587421101/mascots_dge1th.png)
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `Aboudoc`, `AU-proxies`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `Proxies`, `project_description`
 
@@ -87,7 +87,7 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
--   [![Hardhat][Hardhat.org]][Hardhat-url]
+-   [![Hardhat][Hardhat]][Hardhat-url]
 -   [![Ethers][Ethers.js]][Ethers-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -180,7 +180,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Reda Aboutika - [@twitter_handle](https://twitter.com/AboutikaR) - reda.aboutika@gmail.com
+Reda Aboutika - [@twitter_AboutikaR](https://twitter.com/AboutikaR) - reda.aboutika@gmail.com
 
 Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc/AU-proxies)
 
@@ -211,7 +211,7 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 [license-url]: https://github.com/Aboudoc/AU-proxies/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://res.cloudinary.com/divzjiip8/image/upload/c_scale,w_239/v1587421101/mascots_dge1th.png
 [Hardhat]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Hardhat-url]: https://hardhat.org/
 [Ethers.js]: https://img.shields.io/badge/ethers.js-000000?style=for-the-badge&logo=ethersdotjs&logoColor=white
