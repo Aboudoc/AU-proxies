@@ -104,24 +104,32 @@ To get a local copy up and running follow these simple example steps.
 This is an example of how to list things you need to use the software and how to install them.
 
 -   npm
+
     ```sh
     npm install npm@latest -g
     ```
 
+-   hardhat
+
+    ```sh
+    npm i hardhat
+    ```
+
+    run:
+
+    ```sh
+    npx hardhat
+    ```
+
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
     ```sh
     git clone https://github.com/Aboudoc/AU-proxies.git
     ```
-3. Install NPM packages
+2. Install NPM packages
     ```sh
     npm install
-    ```
-4. Enter your API in `config.js`
-    ```js
-    const API_KEY = "ENTER YOUR API"
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,6 +139,40 @@ This is an example of how to list things you need to use the software and how to
 ## Usage
 
 This project demonstrates a basic proxy use case. It comes with 3 different proxy contracts, a test for the generic proxy contract, and a library from openZeppelin called StorageSlot using assembly code.
+
+For test purposes, get contract (ABI) Logic1 and Logic2 with proxy address
+
+```js
+const proxyAsLogic1 = await ethers.getContractAt("Logic1", proxy.address)
+const proxyAsLogic = await ethers.getContractAt("Logic2", proxy.address)
+```
+
+Using 2 ways to check x value:
+
+```js
+assert.equal(await logic1.x(), 0)
+assert.equal(await ethers.provider.getStorageAt(logic1.address, 0x0), 0)
+```
+
+By using eth_storageAt we are bypassing the public getter, we can remove public viewer on x variable
+
+# Proxy V2 contract
+
+The storage values are inside of the proxy. This is where the delegatecall comes in. No data migration needed in case of ugrading to logic2
+
+# Generic Proxy contract
+
+Using eip1967: modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => [library StorageSlot](https://eips.ethereum.org/EIPS/eip-1967)
+
+```js
+    /**
+     * @dev Returns an `AddressSlot` with member `value` located at `slot`.
+     */
+    function getAddressSlot(bytes32 slot) internal pure returns (AddressSlot storage r) {
+        assembly {
+            r.slot := slot
+        }
+```
 
 Generic Proxy should only be used for learning purposes! One thing that it does not do is return the return value in the fallback function. This can only be done by dropping down into assembly code, as shown by the [OpenZeppelin proxy logic](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies#proxy-forwarding). In general, you should try to stick to using proxies that are audited and battle tested!
 
@@ -142,10 +184,10 @@ _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.open
 
 ## Roadmap
 
--   [ ] Feature 1
--   [ ] Feature 2
--   [ ] Feature 3
-    -   [ ] Nested Feature
+-   [ ] Test Generic Proxy
+-   [ ] Explore proxie's vulnerabilities
+-   [ ] Proxy patterns
+    -   [ ] Transparent proxy pattern
 
 See the [open issues](https://github.com/Aboudoc/AU-proxies/issues) for a full list of proposed features (and known issues).
 
@@ -190,9 +232,9 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 
 ## Acknowledgments
 
--   []()
--   []()
--   []()
+-   [AlchemyUniversity](https://university.alchemy.com/)
+-   [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
+-   [SolidityByExample](https://solidity-by-example.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,7 +252,7 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 [license-shield]: https://img.shields.io/github/license/Aboudoc/AU-proxies.svg?style=for-the-badge
 [license-url]: https://github.com/Aboudoc/AU-proxies/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://www.linkedin.com/in/r%C3%A9da-aboutika-34305453/?originalSubdomain=fr
 [product-screenshot]: https://res.cloudinary.com/divzjiip8/image/upload/c_scale,w_239/v1587421101/mascots_dge1th.png
 [Hardhat]: https://img.shields.io/badge/Hardhat-20232A?style=for-the-badge&logo=hardhat&logoColor=61DAFB
 [Hardhat-url]: https://hardhat.org/
@@ -228,61 +270,3 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
-
-//////////////////////////
-
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
-
-# Proxy contract
-
-This contract shows a simple proxy upgradable to Logic1 and Logic2
-
-//Test//
-
-For test purposes, get contract (ABI) Logic1 and Logic2 with proxy address
-
-```shell
-const proxyAsLogic1 = await ethers.getContractAt("Logic1", proxy.address)
-const proxyAsLogic = await ethers.getContractAt("Logic2", proxy.address)
-```
-
-Using 2 ways to check x value:
-
-```shell
-assert.equal(await logic1.x(), 0)
-assert.equal(await ethers.provider.getStorageAt(logic1.address, 0x0), 0)
-```
-
-By using eth_storageAt we are bypinssing the public getter, we can remove public viewer on x variable
-
-# Proxy V2 contract
-
-The storage values are inside of the proxy. This is where the delegatecall comes in. No data migration needed in case of ugrading to logic2
-
-# Generic Proxy contract
-
-Using eip1967: modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => library StorageSlot
-
-```shell
-    /**
-     * @dev Returns an `AddressSlot` with member `value` located at `slot`.
-     */
-    function getAddressSlot(bytes32 slot) internal pure returns (AddressSlot storage r) {
-        assembly {
-            r.slot := slot
-        }
-```
-
-This Proxy should only be used for learning purposes! One thing that it does not do is return the return value in the fallback function. This can only be done by dropping down into assembly code, as shown by the OpenZeppelin proxy logic here. In general, you should try to stick to using proxies that are audited and battle tested!
