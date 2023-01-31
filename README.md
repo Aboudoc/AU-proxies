@@ -183,9 +183,9 @@ _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.open
 
 You can find a basic example of Transparent Proxy Pattern is this repo:
 
-# Proxies securities
+# Proxy exploit
 
-Some proxies vulnerabilities are exposed in this repo: [Proxy-exploit](https://github.com/Aboudoc/Proxy-exploit)
+Some proxy's vulnerabilities can be found in this repo: [Proxy-exploit](https://github.com/Aboudoc/Proxy-exploit)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
