@@ -179,9 +179,13 @@ Generic Proxy should only be used for learning purposes! One thing that it does 
 
 _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable)_
 
+# Transparent proxy pattern
+
+You can find a basic example of Transparent Proxy Pattern is this repo:
+
 # Proxies securities
 
-Some proxies vulnerabilities are exposed in this repo: [Proxy_exploit](https://github.com/Aboudoc/Proxy-exploit)
+Some proxies vulnerabilities are exposed in this repo: [Proxy-exploit](https://github.com/Aboudoc/Proxy-exploit)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
