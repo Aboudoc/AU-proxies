@@ -195,11 +195,10 @@ To test this proxy, you can use helper functiions as `getDataToTransact` or `rea
 
 Note how `readStorage` function uses assembly:
 
-``js
+```js
 assembly {
 valueAtStorageSlotZero := sload(0)
 }
-
 ```
 
 Keep in mind that **if a contract can be updated by only one person, you have a single centralized point of failure. Technically the contract isn't even decentralized**
@@ -332,4 +331,7 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
+
+```
+
 ```
