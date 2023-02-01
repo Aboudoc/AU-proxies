@@ -279,6 +279,7 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 
 -   [AlchemyUniversity](https://university.alchemy.com/)
 -   [Dan-Nolan](https://github.com/Dan-Nolan)
+-   [Patrick Collins](https://github.com/PatrickAlphaC)
 -   [OpenZeppelin](https://docs.openzeppelin.com/upgrades-plugins/1.x/proxies)
 -   [SolidityByExample](https://solidity-by-example.org/)
 

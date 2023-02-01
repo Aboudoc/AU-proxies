@@ -3,7 +3,7 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/proxy/Proxy.sol";
 
-/** @title A Minimalistic Proxy using Proxy.sol frol OpenZeppelin
+/** @title A Minimalistic Proxy using Proxy.sol from OpenZeppelin
  * @dev This proxy contract is implementing eip1967
  * We define the  spot to store the implementation by:
  * keccak256("eip1967.proxy.implementation") - 1
