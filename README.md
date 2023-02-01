@@ -139,16 +139,16 @@ To get a local copy up and running follow these simple example steps.
 
 If you need testnet funds, use the [Alchemy testnet faucet](https://goerlifaucet.com/).
 
-This project demonstrates a basic proxy use case. It comes with 3 different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
+This project demonstrates a basic proxy use case. It comes with four different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
 
-For test purposes, get contract (ABI) Logic1 and Logic2 with proxy address
+For testing purposes, get contract (ABI) Logic1 and Logic2 with proxy address
 
 ```js
 const proxyAsLogic1 = await ethers.getContractAt("Logic1", proxy.address)
 const proxyAsLogic = await ethers.getContractAt("Logic2", proxy.address)
 ```
 
-Using 2 ways to check x value:
+Using two different ways to check x value:
 
 ```js
 assert.equal(await logic1.x(), 0)
@@ -191,7 +191,7 @@ bytes32 private constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db9
 
 The implementation slot is the the `keccak-256` hash of **"eip1967.proxy.implementation"** subtracted by 1
 
-To test this proxy, you can use helper functiions as `getDataToTransact` or `readStorage`. Feel free to test on Remix, seing is believing.
+To test this proxy, you can use helper functions as `getDataToTransact` or `readStorage`. Feel free to test on Remix, seing is believing.
 
 Note how `readStorage` function uses assembly:
 
