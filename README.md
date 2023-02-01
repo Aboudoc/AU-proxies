@@ -167,7 +167,7 @@ The storage values are inside of the proxy. This is where the `delegatecall` com
 
 # Generic Proxy contract
 
-Using EIP1967 to modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => [library StorageSlot](https://eips.ethereum.org/EIPS/eip-1967)
+Using EIP1967 to modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => [library StorageSlot](https://eips.ethereum.org/EIPS/eip-1967) from EIP-1967
 
 ```js
     /**
@@ -187,7 +187,7 @@ _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.open
 
 An example of how upgrading actually works using openZeppelin's `Proxy.sol`contract
 
-`SmallProxy`contract inherits from [Proxy.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/Proxy.sol), set the implementation slot as specified in [EIP1967](https://eips.ethereum.org/EIPS/eip-1967)
+`SmallProxy`contract inherits from [Proxy.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/Proxy.sol), set the implementation slot as specified in [EIP-1967](https://eips.ethereum.org/EIPS/eip-1967)
 
 ```js
 bytes32 private constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;
@@ -211,13 +211,15 @@ Keep in mind that **if a contract can be updated by only one person, you have a 
 
 The main issue is **function selector clashes**. Transparent Proxy and Universal Upgradable Proxy (UUPS) are the solution
 
-# Transparent proxy pattern
+# Transparent Proxy Pattern
 
 You can find a basic example of Transparent Proxy Pattern in this repo: (coming soon...)
 
-# Universal Upgradable Proxy (UUPS)
+# Universal Upgradable Proxy Standard (UUPS)
 
 (coming soon...)
+
+[EIP-1822](https://eips.ethereum.org/EIPS/eip-1822)
 
 All the logic of upgrading in the implementation
 
