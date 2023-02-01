@@ -196,9 +196,11 @@ To test this proxy, you can use helper functiions as `getDataToTransact` or `rea
 Note how `readStorage` function uses assembly:
 
 ```js
-assembly {
-valueAtStorageSlotZero := sload(0)
-}
+    function readStorage() public view returns (uint256 valueAtStorageSlotZero) {
+        assembly {
+            valueAtStorageSlotZero := sload(0)
+        }
+    }
 ```
 
 Keep in mind that **if a contract can be updated by only one person, you have a single centralized point of failure. Technically the contract isn't even decentralized**
