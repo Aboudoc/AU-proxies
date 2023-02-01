@@ -139,7 +139,7 @@ To get a local copy up and running follow these simple example steps.
 
 If you need testnet funds, use the [Alchemy testnet faucet](https://goerlifaucet.com/).
 
-This project demonstrates a basic proxy use case. It comes with four different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
+This project demonstrates some basic proxy use cases. It comes with four different proxy contracts, a test for proxy v2 contract, and a library from openZeppelin called StorageSlot using assembly code.
 
 For testing purposes, get contract (ABI) Logic1 and Logic2 with proxy address
 
@@ -157,9 +157,13 @@ assert.equal(await ethers.provider.getStorageAt(logic1.address, 0x0), 0)
 
 By using eth_getStorageAt we are bypassing the public getter, we can remove public viewer on x variable
 
+# Proxy contract
+
+We're not using `delegatecall`, a massive migration will be needed when changing implementation. The fallback forwards the call to the implementation contract. the implementation works on its own storage.
+
 # Proxy V2 contract
 
-The storage values are inside of the proxy. This is where the delegatecall comes in. No data migration needed in case of ugrading to logic2. For more details, check for [Transparent Proxy Patter](https://blog.openzeppelin.com/the-transparent-proxy-pattern/)
+The storage values are inside of the proxy. This is where the `delegatecall` comes in. No data migration needed in case of ugrading to logic2. For more details, check for [Transparent Proxy Pattern](https://blog.openzeppelin.com/the-transparent-proxy-pattern/)
 
 # Generic Proxy contract
 
