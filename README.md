@@ -163,7 +163,7 @@ The storage values are inside of the proxy. This is where the delegatecall comes
 
 # Generic Proxy contract
 
-Using eip1967: modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => [library StorageSlot](https://eips.ethereum.org/EIPS/eip-1967)
+Using EIP1967 to modify an arbitrary storage slot that we create to put away the implementation to make sure it doesn't collate with any storage variables => [library StorageSlot](https://eips.ethereum.org/EIPS/eip-1967)
 
 ```js
     /**
@@ -185,7 +185,22 @@ An example of how upgrading actually works using openZeppelin's `Proxy.sol`contr
 
 `SmallProxy`contract inherits from [Proxy.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/Proxy.sol), set the implementation slot as specified in [EIP1967](https://eips.ethereum.org/EIPS/eip-1967)
 
+```js
+bytes32 private constant _IMPLEMENTATION_SLOT = 0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc;
+```
+
+The implementation slot is the the `keccak-256` hash of **"eip1967.proxy.implementation"** subtracted by 1
+
 To test this proxy, you can use helper functiions as `getDataToTransact` or `readStorage`. Feel free to test on Remix, seing is believing.
+
+Note how `readStorage` function uses assembly:
+
+``js
+assembly {
+valueAtStorageSlotZero := sload(0)
+}
+
+```
 
 Keep in mind that **if a contract can be updated by only one person, you have a single centralized point of failure. Technically the contract isn't even decentralized**
 
@@ -317,3 +332,4 @@ Project Link: [https://github.com/Aboudoc/AU-proxies](https://github.com/Aboudoc
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com
+```
