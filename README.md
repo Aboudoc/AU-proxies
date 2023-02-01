@@ -179,9 +179,43 @@ Generic Proxy should only be used for learning purposes! One thing that it does 
 
 _For audited examples, please refer to the [OpenZeppelin Docs](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable)_
 
+# Open Zeppelin Proxy
+
+An example of how upgrading actually works using openZeppelin's `Proxy.sol`contract
+
+`SmallProxy`contract inherits from [Proxy.sol](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/proxy/Proxy.sol), set the implementation slot as specified in [EIP1967](https://eips.ethereum.org/EIPS/eip-1967)
+
+To test this proxy, you can use helper functiions as `getDataToTransact` or `readStorage`. Feel free to test on Remix, seing is believing.
+
+Keep in mind that **if a contract can be updated by only one person, you have a single centralized point of failure. Technically the contract isn't even decentralized**
+
+The main issue is **function selector clashes**. Transparent Proxy and Universal Upgradable Proxy (UUPS) are the solution
+
 # Transparent proxy pattern
 
-You can find a basic example of Transparent Proxy Pattern is this repo:
+You can find a basic example of Transparent Proxy Pattern in this repo: (coming soon...)
+
+# Universal Upgradable Proxy (UUPS)
+
+(coming soon...)
+
+All the logic of upgrading in the implementation
+
+-   Allows Solidity to detect 2 functions with the same selector (while compiling)
+-   Gas saver: we have to do lesser read. No need to check in the proxy contract if someone is an Admin
+
+The main issue is **if you deploy an implementation contract without an upgradable functionality, back to the YEET method**
+
+# Diamond Pattern
+
+(coming soon...)
+
+-   Allows for multiple implementation contracts
+-   Allows to make more granular upgrades
+
+# Metamorphic Contract
+
+(coming soon...)
 
 # Proxy exploit
 
@@ -195,9 +229,10 @@ Some proxy's vulnerabilities can be found in this repo: [Proxy-exploit](https://
 
 -   [ ] Test Generic Proxy
 -   [ ] Write scripts to deploy and interact with proxy
--   [ ] Explore proxie's vulnerabilities
+-   [-] Explore proxie's vulnerabilities
 -   [ ] Proxy patterns
-    -   [ ] Transparent proxy pattern
+    -   [ ] Transparent Proxy Pattern
+    -   [ ] Universal Upgradable Proxy (UUPS)
 
 See the [open issues](https://github.com/Aboudoc/AU-proxies/issues) for a full list of proposed features (and known issues).
 
